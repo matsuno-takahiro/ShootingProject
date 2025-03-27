@@ -2214,6 +2214,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ray Dagger
       objectReference: {fileID: 0}
+    - target: {fileID: 4567016352798198, guid: 466b888ac39741340837400751f1e215, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.025
+      objectReference: {fileID: 0}
     - target: {fileID: 4752914199272306, guid: 466b888ac39741340837400751f1e215, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -2257,6 +2261,21 @@ PrefabInstance:
     - target: {fileID: 4752914199272306, guid: 466b888ac39741340837400751f1e215, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114040840577885686, guid: 466b888ac39741340837400751f1e215,
+        type: 3}
+      propertyPath: weapons.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114040840577885686, guid: 466b888ac39741340837400751f1e215,
+        type: 3}
+      propertyPath: weapons.Array.data[2].launcher
+      value: 
+      objectReference: {fileID: 2017762754}
+    - target: {fileID: 114040840577885686, guid: 466b888ac39741340837400751f1e215,
+        type: 3}
+      propertyPath: weapons.Array.data[2].buttonName
+      value: Fire1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6536,6 +6555,18 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 28639763}
   m_SourcePrefab: {fileID: 100100000, guid: 1adfac7153493bc45a897007c8e4bd22, type: 3}
+--- !u!114 &2017762754 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5621927050774989286, guid: 466b888ac39741340837400751f1e215,
+    type: 3}
+  m_PrefabInstance: {fileID: 712593591}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 163a977c80c954e46b33fae4690da51f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2039593068
 GameObject:
   m_ObjectHideFlags: 0
