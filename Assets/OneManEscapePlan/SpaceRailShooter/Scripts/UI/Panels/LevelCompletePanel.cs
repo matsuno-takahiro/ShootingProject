@@ -43,7 +43,9 @@ namespace OneManEscapePlan.SpaceRailShooter.Scripts.UI.Panels {
         virtual public void Continue()
         {
             Game.TotalScore += LevelScore;
+            //SumScore.Add(Game.TotalScore); // SumScoreにスコアを追加
             levelManager.NextLevel();
+
         }
     }
 }
