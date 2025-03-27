@@ -34,6 +34,14 @@ namespace OneManEscapePlan.SpaceRailShooter.Scripts {
                 totalScore = value;
             }
         }
+        /// <summary>
+        /// TotalScoreを初期化するメソッド
+        /// </summary>
+        public static void ResetTotalScore()
+        {
+            totalScore = 0;
+        }
+
         #endregion
 
         [Tooltip("アプリケーションの目標フレームレート（フレーム毎秒）")]

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using OneManEscapePlan.SpaceRailShooter.Scripts;
+using UnityEngine;
 
 /// <summary>
 /// SumScoreとSumScoreManagerの使用例
@@ -58,6 +59,25 @@ public class SumScoreExample : MonoBehaviour
     {
         SumScore.ClearHighScore();
     }
+
+    public void AddGameTotalScore()
+    {
+        AddPoints(Game.TotalScore);
+
+        // ハイスコアをチェックし、超過した場合に保存
+        if (SumScore.Score > SumScore.HighScore)
+        {
+            SumScore.SaveHighScore();
+        }
+
+        // ハイスコアが超過した場合にPlayerPrefsに保存
+        if (SumScore.Score > PlayerPrefs.GetInt("HighScore", 0))
+        {
+            PlayerPrefs.SetInt("HighScore", SumScore.Score);
+            PlayerPrefs.Save();
+        }
+    }
+
 
     void Update()
     {

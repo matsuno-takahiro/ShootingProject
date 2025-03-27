@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using OneManEscapePlan.SpaceRailShooter.Scripts; // Gameクラスの名前空間をインポート
 
 public class SceneLoadHandler : MonoBehaviour
 {
@@ -25,6 +26,9 @@ public class SceneLoadHandler : MonoBehaviour
     {
         // ここにシーンロード時の処理を記述
         Debug.Log("シーンがロードされました: " + scene.name);
+
+        // TotalScoreを初期化
+        Game.ResetTotalScore();
 
         // UnityEventを呼び出す
         if (onSceneLoaded != null)

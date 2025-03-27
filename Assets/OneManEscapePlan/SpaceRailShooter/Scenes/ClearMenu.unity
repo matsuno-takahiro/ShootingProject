@@ -302,9 +302,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 833484299}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: Quit
+      - m_Target: {fileID: 833484300}
+        m_TargetAssemblyTypeName: OneManEscapePlan.SpaceRailShooter.Scripts.UI.Panels.GameOverPanel,
+          Assembly-CSharp
+        m_MethodName: Exit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6593,6 +6594,7 @@ GameObject:
   - component: {fileID: 833484296}
   - component: {fileID: 833484295}
   - component: {fileID: 833484299}
+  - component: {fileID: 833484300}
   m_Layer: 5
   m_Name: MainMenuCanvas
   m_TagString: Untagged
@@ -6706,6 +6708,26 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   panelManager: {fileID: 1859228458}
+--- !u!114 &833484300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833484294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d35d2503cfc38084b88fd74d17cba4d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSelection: {fileID: 0}
+  closeButtonVirtualName: 
+  panelDestroyedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  levelScoreText: {fileID: 0}
+  totalScoreText: {fileID: 0}
+  mainMenuSceneName: MainMenu
 --- !u!1 &877816488
 GameObject:
   m_ObjectHideFlags: 0
