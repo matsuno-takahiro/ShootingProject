@@ -15,33 +15,35 @@ using UnityEngine.UI;
 
 namespace OneManEscapePlan.SpaceRailShooter.Scripts.UI.Panels {
 
-	/// <summary>
-	/// Attach this component to a Panel that appears when the player completes a level. This panel
-	/// extends GameOverPanel with additional functionality for displaying the "level complete"
-	/// message and proceeding to the next level.
-	/// </summary>
-	/// COMPLEXITY: Beginner
-	/// CONCEPTS: Panels, Coroutines
-	[DisallowMultipleComponent]
-	public class LevelCompletePanel : GameOverPanel {
+    /// <summary>
+    /// プレイヤーがレベルをクリアしたときに表示されるパネルにこのコンポーネントをアタッチします。このパネルは
+    /// GameOverPanelを拡張し、「レベル完了」メッセージを表示し、次のレベルに進むための追加機能を提供します。
+    /// </summary>
+    /// 複雑さ: 初心者
+    /// 概念: パネル、コルーチン
+    [DisallowMultipleComponent]
+    public class LevelCompletePanel : GameOverPanel
+    {
 
-		[SerializeField] protected Text titleText;
+        [SerializeField] protected Text titleText;
 
-		protected LinearLevelManager levelManager;
+        protected LinearLevelManager levelManager;
 
-		override protected void Awake() {
-			base.Awake();
-			Assert.IsNotNull<Text>(titleText, "You forgot to select the title text");
+        override protected void Awake()
+        {
+            base.Awake();
+            Assert.IsNotNull<Text>(titleText, "タイトルテキストを選択するのを忘れました");
 
-			levelManager = GameObject.FindObjectOfType<LinearLevelManager>();
-			Assert.IsNotNull<LinearLevelManager>(levelManager);
-			int index = levelManager.CurrentLevelIndex;
-			titleText.text = levelManager.LevelSequence.GetEntryAt(index).DisplayName + " Complete";
-		}
+            levelManager = GameObject.FindObjectOfType<LinearLevelManager>();
+            Assert.IsNotNull<LinearLevelManager>(levelManager);
+            int index = levelManager.CurrentLevelIndex;
+            titleText.text = levelManager.LevelSequence.GetEntryAt(index).DisplayName + " 完了";
+        }
 
-		virtual public void Continue() {
-			Game.TotalScore += LevelScore;
-			levelManager.NextLevel();
-		}
-	}
+        virtual public void Continue()
+        {
+            Game.TotalScore += LevelScore;
+            levelManager.NextLevel();
+        }
+    }
 }

@@ -10,67 +10,78 @@ using UnityEngine;
 
 namespace OneManEscapePlan.SpaceRailShooter.Scripts {
 
-	/// <summary>
-	/// Configures game settings such as framerate.
-	/// </summary>
-	/// COMPLEXITY: Beginner
-	public class Game : MonoBehaviour {
+    /// <summary>
+    /// フレームレートなどのゲーム設定を構成します。
+    /// </summary>
+    /// 複雑さ: 初心者
+    public class Game : MonoBehaviour
+    {
 
-		#region Static
-		private static int totalScore = 0;
-		/// <summary>
-		/// The player's current total score across all levels they have completed
-		/// </summary>
-		public static int TotalScore {
-			get {
-				return totalScore;
-			}
-			set {
-				if (value < 0) throw new ArgumentOutOfRangeException("value", "TotalScore cannot be negative");
-				totalScore = value;
-			}
-		}
-		#endregion
+        #region Static
+        private static int totalScore = 0;
+        /// <summary>
+        /// プレイヤーが完了したすべてのレベルの現在の合計スコア
+        /// </summary>
+        public static int TotalScore
+        {
+            get
+            {
+                return totalScore;
+            }
+            set
+            {
+                if (value < 0) throw new ArgumentOutOfRangeException("value", "TotalScoreは負の値にできません");
+                totalScore = value;
+            }
+        }
+        #endregion
 
-		[Tooltip("Application target framerate (frames per second)")]
-		[Range(10, 120)]
-		[SerializeField] protected int frameRate = 20;
+        [Tooltip("アプリケーションの目標フレームレート（フレーム毎秒）")]
+        [Range(10, 120)]
+        [SerializeField] protected int frameRate = 20;
 
-		private bool isPaused = false;
+        private bool isPaused = false;
 
-		virtual protected void Awake() {
-			QualitySettings.vSyncCount = 0;
-			Application.targetFrameRate = frameRate;
-			Camera.main.allowDynamicResolution = false;
-			//Note that this does not work in the Editor
-			//Screen.SetResolution(screenResolution.x, screenResolution.y, true);
-		}
+        virtual protected void Awake()
+        {
+            QualitySettings.vSyncCount = 0;
+            Application.targetFrameRate = frameRate;
+            Camera.main.allowDynamicResolution = false;
+            //これがエディタでは機能しないことに注意してください
+            //Screen.SetResolution(screenResolution.x, screenResolution.y, true);
+        }
 
-		/// <summary>
-		/// The target framerate
-		/// </summary>
-		public int FrameRate {
-			get {
-				return frameRate;
-			}
+        /// <summary>
+        /// 目標フレームレート
+        /// </summary>
+        public int FrameRate
+        {
+            get
+            {
+                return frameRate;
+            }
 
-			set {
-				frameRate = value;
-			}
-		}
+            set
+            {
+                frameRate = value;
+            }
+        }
 
 
-		public bool IsPaused {
-			get {
-				return isPaused;
-			}
+        public bool IsPaused
+        {
+            get
+            {
+                return isPaused;
+            }
 
-			set {
-				isPaused = value;
-				if (value) Time.timeScale = 0;
-				else Time.timeScale = 1;
-			}
-		}
+            set
+            {
+                isPaused = value;
+                if (value) Time.timeScale = 0;
+                else Time.timeScale = 1;
+            }
+        }
 
-	}
+    }
 }

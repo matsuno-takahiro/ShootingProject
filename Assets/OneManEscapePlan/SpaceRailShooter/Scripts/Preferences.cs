@@ -7,31 +7,32 @@ using UnityEngine;
 
 namespace OneManEscapePlan.SpaceRailShooter.Scripts {
 
-	/// <summary>
-	/// Serves as a wrapper for PlayerPrefs, allowing us to access saved preferences
-	/// without having to worry about misspelling preference keys or manually casting
-	/// booleans to/from integers.
-	/// 
-	/// PLEASE REMEMBER THAT SAVE GAME DATA SHOULD NOT BE SAVED IN PLAYER PREFS. Save
-	/// game data should be saved in its own separate files.
-	/// </summary>
-	/// COMPLEXITY: Beginner
-	public static class Preferences {
+    /// <summary>
+    /// PlayerPrefsのラッパーとして機能し、設定キーのスペルミスや
+    /// ブール値を整数に手動でキャストすることを心配せずに保存された設定にアクセスできます。
+    /// 
+    /// セーブデータはPlayerPrefsに保存しないでください。セーブデータは
+    /// 別のファイルに保存する必要があります。
+    /// </summary>
+    /// 複雑さ: 初心者
+    public static class Preferences
+    {
 
-		private static PlayerPrefsBoolProperty invertYAxis = new PlayerPrefsBoolProperty("invert_y_axis", true);
-		public static PlayerPrefsBoolProperty InvertYAxis { get { return invertYAxis; } }
+        private static PlayerPrefsBoolProperty invertYAxis = new PlayerPrefsBoolProperty("invert_y_axis", true);
+        public static PlayerPrefsBoolProperty InvertYAxis { get { return invertYAxis; } }
 
-		private static PlayerPrefsFloatProperty musicVolume = new PlayerPrefsFloatProperty("music_volume", 1);
-		public static PlayerPrefsFloatProperty MusicVolume { get { return musicVolume; } }
+        private static PlayerPrefsFloatProperty musicVolume = new PlayerPrefsFloatProperty("music_volume", 1);
+        public static PlayerPrefsFloatProperty MusicVolume { get { return musicVolume; } }
 
-		private static PlayerPrefsFloatProperty soundEffectsVolume = new PlayerPrefsFloatProperty("sfx_volume", 1);
-		public static PlayerPrefsFloatProperty SoundEffectsVolume { get { return soundEffectsVolume; } }
+        private static PlayerPrefsFloatProperty soundEffectsVolume = new PlayerPrefsFloatProperty("sfx_volume", 1);
+        public static PlayerPrefsFloatProperty SoundEffectsVolume { get { return soundEffectsVolume; } }
 
-		/// <summary>
-		/// This convenience method just calls PlayerPrefs.Save()
-		/// </summary>
-		public static void Save() {
-			PlayerPrefs.Save();
-		}
-	}
+        /// <summary>
+        /// この便利なメソッドはPlayerPrefs.Save()を呼び出すだけです
+        /// </summary>
+        public static void Save()
+        {
+            PlayerPrefs.Save();
+        }
+    }
 }

@@ -14,66 +14,75 @@ using UnityEngine.UI;
 
 namespace OneManEscapePlan.SpaceRailShooter.Scripts.UI.Panels {
 
-	/// <summary>
-	/// Attach this component to a Panel that appears when the player gets a game over
-	/// </summary>
-	/// COMPLEXITY: Beginner
-	/// CONCEPTS: Panels, Coroutines
-	[DisallowMultipleComponent]
-	public class GameOverPanel : MenuPanel {
+    /// <summary>
+    /// プレイヤーがゲームオーバーになったときに表示されるパネルにこのコンポーネントをアタッチします
+    /// </summary>
+    /// 複雑さ: 初心者
+    /// 概念: パネル、コルーチン
+    [DisallowMultipleComponent]
+    public class GameOverPanel : MenuPanel
+    {
 
-		[SerializeField] protected Text levelScoreText;
-		[SerializeField] protected Text totalScoreText;
+        [SerializeField] protected Text levelScoreText;
+        [SerializeField] protected Text totalScoreText;
 
-		[SerializeField] protected string mainMenuSceneName = "MainMenu";
+        [SerializeField] protected string mainMenuSceneName = "MainMenu";
 
-		private Game game;
-		private int score;
+        private Game game;
+        private int score;
 
-		protected virtual void Awake() {
-			Assert.IsNotNull<Text>(levelScoreText, "You forgot to select the level score text");
-			Assert.IsNotNull<Text>(totalScoreText, "You forgot to select the total score text");
-			game = GameObject.FindObjectOfType<Game>();
-			Assert.IsNotNull<Game>(game);
-		}
+        protected virtual void Awake()
+        {
+            Assert.IsNotNull<Text>(levelScoreText, "レベルスコアのテキストを選択するのを忘れました");
+            Assert.IsNotNull<Text>(totalScoreText, "合計スコアのテキストを選択するのを忘れました");
+            game = GameObject.FindObjectOfType<Game>();
+            Assert.IsNotNull<Game>(game);
+        }
 
-		protected override void OnEnable() {
-			base.OnEnable();
-			game.IsPaused = true;
-		}
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+            game.IsPaused = true;
+        }
 
-		override protected void OnDestroy() {
-			game.IsPaused = false;
-			base.OnDestroy();
-		}
+        override protected void OnDestroy()
+        {
+            game.IsPaused = false;
+            base.OnDestroy();
+        }
 
-		/// <summary>
-		/// The score that the player received for this level (not including points from previous levels)
-		/// </summary>
-		virtual public int LevelScore {
-			set {
-				score = value;
-				levelScoreText.text = score.ToString("n0");
-				totalScoreText.text = (Game.TotalScore + score).ToString();
-			}
-			get {
-				return score;
-			}
-		}
+        /// <summary>
+        /// プレイヤーがこのレベルで獲得したスコア（前のレベルのポイントを含まない）
+        /// </summary>
+        virtual public int LevelScore
+        {
+            set
+            {
+                score = value;
+                levelScoreText.text = score.ToString("n0");
+                totalScoreText.text = (Game.TotalScore + score).ToString();
+            }
+            get
+            {
+                return score;
+            }
+        }
 
-		/// <summary>
-		/// Restart the current level (the player will lose their score for the level)
-		/// </summary>
-		virtual public void Retry() {
-			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-		}
+        /// <summary>
+        /// 現在のレベルを再開します（プレイヤーはレベルのスコアを失います）
+        /// </summary>
+        virtual public void Retry()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
 
-		/// <summary>
-		/// Return to the main menu
-		/// </summary>
-		virtual public void Exit() {
-			SceneManager.LoadSceneAsync(mainMenuSceneName);
-		}
-		
-	}
+        /// <summary>
+        /// メインメニューに戻ります
+        /// </summary>
+        virtual public void Exit()
+        {
+            SceneManager.LoadSceneAsync(mainMenuSceneName);
+        }
+
+    }
 }
